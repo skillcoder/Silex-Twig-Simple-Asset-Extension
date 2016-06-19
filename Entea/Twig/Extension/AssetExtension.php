@@ -40,7 +40,7 @@ class AssetExtension extends \Twig_Extension
     {   
         parent::initRuntime($environment);
         
-        $this->directory = $this->app['request']->getBasePath();
+        $this->directory = $this->app['request_stack']->getCurrentRequest()->getBasePath();
         if(isset($this->options['asset.directory']))
             $this->directory = $this->options['asset.directory'];
         
